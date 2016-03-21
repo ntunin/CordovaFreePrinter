@@ -23,11 +23,13 @@
 #import <Cordova/CDVPlugin.h>
 
 
-@interface APPPrinter : CDVPlugin
+@interface FreePrinter : CDVPlugin
 
 // Prints the content
 - (void) print:(CDVInvokedUrlCommand*)command;
 // Find out whether printing is supported on this platform
 - (void) isAvailable:(CDVInvokedUrlCommand*)command;
+
+- (void) configurePrinter: (id) config;
 
 @end
