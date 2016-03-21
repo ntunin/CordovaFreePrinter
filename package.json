@@ -1,9 +1,9 @@
 {
-  "name": "de.appplant.cordova.plugin.printer",
-  "version": "0.7.1-dev",
+  "name": "com.rhinoda.cordova.plugin.printer",
+  "version": "0.0.1-dev",
   "description": "Cordova plugin to print HTML documents using AirPrint and Android Printing Framework.",
   "cordova": {
-    "id": "de.appplant.cordova.plugin.printer",
+    "id": "https://github.com/ntunin/CordovaFreePrinter.git",
     "platforms": [
       "ios",
       "android"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/katzer/cordova-plugin-printer.git"
+    "url": "https://github.com/ntunin/CordovaFreePrinter.git"
   },
   "keywords": [
 	"appplant",
@@ -31,10 +31,7 @@
       "version": ">=3.0.0"
     }
   ],
-  "author": "Sebastián Katzer",
+  "author": "Nik Tyunin",
   "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/katzer/cordova-plugin-printer/issues"
-  },
-  "homepage": "https://github.com/katzer/cordova-plugin-printer"
+  "homepage": "https://github.com/ntunin/CordovaFreePrinter"
 }
