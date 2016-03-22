@@ -84,7 +84,9 @@ public class Printer extends CordovaPlugin {
         // Returning false results in a "MethodNotFound" error.
         return false;
     }
-
+	public void configurePrinter(final JSONArray args) {
+		return;
+	}
     /**
      * Informs if the device is able to print documents.
      * A Internet connection is required to load the cloud print dialog.

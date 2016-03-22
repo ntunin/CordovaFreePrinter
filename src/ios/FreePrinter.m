@@ -29,9 +29,19 @@
 @end
 
 
-@implementation FreePrinter
-- (void) configurePrinter:(id)config {
-	return;
+@implementation FreePrinter {
+	NSDictionary* config;
+}
+
+- (void) configurePrinter:(CDVInvokedUrlCommand*)command {
+	NSArray*  arguments           = [command arguments];
+	NSMutableDictionary* settings = [arguments objectAtIndex:0];
+	config = settings;
+	_callbackId = command.callbackId;
+	CDVPluginResult* pluginResult =
+	[CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+	[self.commandDelegate sendPluginResult:pluginResult
+								callbackId:_callbackId];
 }
 /*
  * Checks if the printing service is available.
@@ -78,16 +88,20 @@
 	[self adjustPrintController:controller withSettings:settings];
 	[self loadContent:content intoPrintController:controller];
 
-	if (printerId) {
-		[self sendToPrinter:controller printer:printerId];
-	}
-	else {
-		CGRect rect = [self convertIntoRect:[settings objectForKey:@"bounds"]];
+	if (!printerId) {
+		printerId = [config objectForKey:@"printerId"];
+		
+		if(printerId) {
+			[self sendToPrinter:controller printer:printerId];
+		}
+		else {
 
-		[self presentPrintController:controller fromRect:rect];
+			CGRect rect = [self convertIntoRect:[settings objectForKey:@"bounds"]];
+
+			[self presentPrintController:controller fromRect:rect];
+		}
 	}
 }
-
 /**
  * Retrieves an instance of shared print controller.
  *
