@@ -62,15 +62,11 @@ exports.configurePrinter = function (options, callback, scope) {
         fn     = this._createCallbackFn(callback);
 
     if (typeof params == 'string') {
-        params = { name: params };
+        params = { printerId: params };
     }
 
     params = this.mergeWithDefaults(params);
-
-    if ([null, undefined, ''].indexOf(params.name) > -1) {
-        params.name = this.DEFAULT_DOC_NAME;
-    }
-
+    
     exec(fn, null, 'Printer', 'configurePrinter', [params]);
 };
 /**
