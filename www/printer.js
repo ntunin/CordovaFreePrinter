@@ -56,7 +56,7 @@ exports.isAvailable = function (callback, scope) {
 
     exec(fn, null, 'Printer', 'isAvailable', []);
 };
-exports.configurePrinter = function(options) {
+exports.configurePrinter = function(options, callback, scope) {
     var fn = this._createCallbackFn(callback);
 
     exec(fn, null, 'Printer', 'configurePrinter', [options]);    
