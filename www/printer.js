@@ -56,11 +56,23 @@ exports.isAvailable = function (callback, scope) {
 
     exec(fn, null, 'Printer', 'isAvailable', []);
 };
-exports.configurePrinter = function(options, callback, scope) {
-    var fn = this._createCallbackFn(callback);
 
-    exec(fn, null, 'Printer', 'configurePrinter', [options]);    
-}
+exports.configurePrinter = function (options, callback, scope) {
+    var params = options || {},
+        fn     = this._createCallbackFn(callback);
+
+    if (typeof params == 'string') {
+        params = { name: params };
+    }
+
+    params = this.mergeWithDefaults(params);
+
+    if ([null, undefined, ''].indexOf(params.name) > -1) {
+        params.name = this.DEFAULT_DOC_NAME;
+    }
+
+    exec(fn, null, 'Printer', 'configurePrinter', [params]);
+};
 /**
  * Sends the content to the Google Cloud Print service.
  *
