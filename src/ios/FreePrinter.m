@@ -246,7 +246,6 @@
 {
 	NSURL* url         = [NSURL URLWithString:printerId];
 	UIPrinter* printer = [UIPrinter printerWithURL:url];
-
 	[controller printToPrinter:printer completionHandler:
 	 ^(UIPrintInteractionController *ctrl, BOOL ok, NSError *e) {
 		 CDVPluginResult* pluginResult =
