@@ -57,7 +57,10 @@
         </config-file>
 
         <source-file src="src/android/Printer.java" target-dir="src/com/rhinoda/cordova/plugin/printer" />
-    </platform>
-   <framework src="com.dynamixsoftware.intentapi:intentAPI:7.4.5" />
-   <framework src="com.dynamixsoftware.printingsdk:printingSDK:7.4.5" />
+
+		<framework src="com.android.support:support-v4:23.0.1" />
+		<framework src="com.android.support:appcompat-v7:23.0.1" />
+		<framework src="com.dynamixsoftware.intentapi:intentAPI:7.4.5" />
+		<framework src="com.dynamixsoftware.printingsdk:printingSDK:7.4.5" />
+	</platform>
 </plugin>
